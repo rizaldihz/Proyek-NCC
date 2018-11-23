@@ -1,0 +1,196 @@
+
+body {
+  margin: 0;
+  font-family: avenir, helvetica;
+}
+
+.topnav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-right: 0.8px solid #bbb;
+
+}
+
+.topnav:last-child{
+    border-right: none;
+
+}
+
+.topnav a{
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-style: italic;
+    font-size: 14px; 
+    font-weight: bold;
+}
+
+.topnav a:hover{
+    background-color: gray;
+    color: black;
+    transition: transform 0.5s ease;
+    transform: scale(1.15);
+}
+
+
+.hero-image {
+  background-image: url("<?php echo $dir?>/public/img/alexandru-acea-674024-unsplash.jpg");
+  background-color: #cccccc;
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-text {
+  color: #ec9c81;
+  padding-top: 160px;
+  font-family: avenir;
+  font-weight: bold;
+  text-align-last: center;
+  line-height: 50px;
+  font-size:35px;
+  font-weight: bold;
+}
+
+
+.butres {
+	background-color: white;
+	font-family: avenir;
+	color: gray;
+	font-weight: bold;
+	border-radius: 10px;
+	height: 40px;
+	width: 150px;
+	margin-top: 0px;
+	font-size: 15px;
+	border: none;
+}
+
+.hero-image2 {
+  background-image: url("<?php echo $dir?>/public/img/lum3n-250309-unsplash.jpg");
+  background-color: #cccccc;
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-text2 {
+  color: gray;
+  padding-top: 150px;
+  font-family: avenir;
+  font-weight: bold;
+  text-align-last: center;
+  line-height: 40px;
+  padding-top: 220px;
+}
+
+.hero-image3 {
+  background-image: url("<?php echo $dir?>/public/img/leone-venter-559377-unsplash.jpg");
+  background-color: #cccccc;
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-text3 {
+  color: gray;
+  font-family: avenir;
+  font-weight: bold;
+  text-align-last: left;
+  line-height: 25px;
+  padding-top: 100px;
+}
+
+.hero-image4 {
+  background-image: url("<?php echo $dir?>/public/img/kontak.jpg");
+  background-color: #cccccc;
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-log {
+  background-image: url("<?php echo $dir?>/public/img/georgie-cobbs-459520-unsplash.jpg");
+  background-color: gray;
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-res {
+  background-image: url("<?php echo $dir?>/public/img/scott-webb-199479-unsplash.jpg");
+  background-color: gray;
+  height: 1200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.isi {
+  margin-left: 30%;
+  width: 40%; /* Could be more or less, depending on screen size */
+  border-radius:8px;
+  opacity: 0.8;
+}
+
+.container {
+  padding: 16px;
+  padding-top: 40px;
+}
+
+* {box-sizing: border-box}
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px;
+  margin: 5px 0 25px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  border-radius:8px;
+}
+
+
+input[type=text]:focus, input[type=password]:focus {
+  outline: none;
+  box-shadow: 1px 1px 15px #000000;
+}
+
+.tombol::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.hero-image-choice {
+  background-image: url("<?php echo $dir?>/public/img/dustin-lee-19666-unsplash.jpg");
+  background-color: #cccccc;
+  height: 610px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-up {
+  background-image: url("<?php echo $dir?>/public/img/new-data-services-746313-unsplash.jpg");
+  background-color: gray;
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
