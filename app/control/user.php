@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['admin']['user'] = $user;
             $_SESSION['admin']['loggedin'] = true;
             $db->close();
-            redirect("$dir/monitorpc");
+            redirect("$dir/monitor");
         }else{
             $db->close();
             redirect("$dir/user?gagal");  

@@ -16,6 +16,7 @@ $dir = explode("htdocs",$root)[1];
 
 $path = explode("?", $_SERVER["REQUEST_URI"])[0];
 
+
 if (!isset($_SESSION['admin'])) {
     $_SESSION['admin']['loggedin'] =false;
 }
