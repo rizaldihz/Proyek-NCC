@@ -48,24 +48,25 @@
 			    </div>
 			  </form>
 		<?php else:?>
-		<label for="nama" class="font">Nama</label>
-			        <p class="font">Nama: 
+			<div class="container">
+			        <p class="font">Nama 	: 
 							<?php echo $nama ?></p>
-							<p class="font">NRP: 
+							<p class="font">NRP 	: 
 							<?php echo $nrp ?></p>
-							<p class="font">Telepon: 
+							<p class="font">Telepon 	: 
 							<?php echo $telepon ?></p>
-							<p class="font">Email: 
+							<p class="font">Email 	: 
 							<?php echo $email ?></p>
-							<p class="font">Dosen: 
+							<p class="font">Dosen 	: 
 							<?php echo $dosen ?></p>
-							<p class="font">NIP: 
+							<p class="font">NIP 	: 
 							<?php echo $nip ?></p>
-							<p class="font">Awal: 
+							<p class="font">Awal 	: 
 							<?php echo $awal ?></p>
-							<p class="font">Akhir: 
+							<p class="font">Akhir 	: 
 							<?php echo $akhir ?></p>
 							<a href="<?php echo $dir ?>/request?">Download Form Disini</a>
+						</div>
 							<?php endif?>  
 	</div>
 

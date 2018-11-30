@@ -57,7 +57,7 @@
 .hero-image-choice {
   background-image: url("<?php echo $dir?>/public/img/dustin-lee-19666-unsplash.jpg");
   background-color: #cccccc;
-  height: 610px;
+  height: 800px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

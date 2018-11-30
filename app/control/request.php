@@ -65,7 +65,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $pdf->Write(5, "Atas Perhatiannya Terimakasih");
     $db->close();
-    $pdf->Output("ncc_form_".$array['id'].".pdf","D"); 
+    $pdf->Output("ncc_form_".$array['id'].".pdf","D");
+
+     
 }else{
     redirect("/reserve");
 }

@@ -5,6 +5,7 @@ session_start();
 error_reporting(E_ERROR | E_PARSE);
 
 
+
 $root = str_replace("\\", "/", __DIR__);
 $app = $root."/app";
 $public = $root."/public";
@@ -13,8 +14,11 @@ $public = $root."/public";
 define('FPDF_FONTPATH',"$app/control/pdf/font/");
 
 $dir = explode("htdocs",$root)[1];
+// isi $dir = /CAMIN/
 
 $path = explode("?", $_SERVER["REQUEST_URI"])[0];
+// REQUEST URI /CAMIN/request - ? - login
+
 
 if (!isset($_SESSION['admin'])) {
     $_SESSION['admin']['loggedin'] =false;
@@ -35,6 +39,9 @@ function redirect($path = "/")
 $db = include "$root/app/control/database.php";
 
 
+//cek ada control
+//misal login control user
+// CAMIN/user
 if (file_exists("$app/control$path.php")) {
     include "$app/control$path.php";
 } else {
@@ -55,6 +62,8 @@ if (file_exists("$app/control$path.php")) {
 
 $prefix = explode("/", $path)[1];
 
+
+//include tampilan
 if (file_exists("$app/view$path.php")) {
     include "$app/view$path.php";
 } else {
