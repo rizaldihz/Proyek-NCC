@@ -1,1 +1,0 @@
-# tehelbaru.github.io
