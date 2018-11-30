@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Nov 23, 2018 at 10:08 PM
+=======
+-- Generation Time: Nov 24, 2018 at 01:10 AM
+>>>>>>> master
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -44,6 +48,59 @@ INSERT INTO `admin` (`id`, `user`, `pass`) VALUES
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
+=======
+-- Table structure for table `pc`
+--
+
+CREATE TABLE `pc` (
+  `id` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pc`
+--
+
+INSERT INTO `pc` (`id`, `status`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1),
+(10, 1),
+(11, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `peminjaman`
+--
+
+CREATE TABLE `peminjaman` (
+  `id` int(11) NOT NULL,
+  `pc` varchar(5) NOT NULL,
+  `nrp` varchar(18) NOT NULL,
+  `awal` date NOT NULL,
+  `akhir` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `peminjaman`
+--
+
+INSERT INTO `peminjaman` (`id`, `pc`, `nrp`, `awal`, `akhir`) VALUES
+(5, '1', 'hehe', '0000-00-00', '0000-00-00'),
+(6, '1', 'hehe', '0001-01-01', '0002-01-01');
+
+-- --------------------------------------------------------
+
+--
+>>>>>>> master
 -- Table structure for table `reservasi`
 --
 
@@ -82,6 +139,21 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+<<<<<<< HEAD
+=======
+-- Indexes for table `pc`
+--
+ALTER TABLE `pc`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `peminjaman`
+--
+ALTER TABLE `peminjaman`
+  ADD PRIMARY KEY (`id`);
+
+--
+>>>>>>> master
 -- Indexes for table `reservasi`
 --
 ALTER TABLE `reservasi`
@@ -95,7 +167,17 @@ ALTER TABLE `reservasi`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `peminjaman`
+--
+ALTER TABLE `peminjaman`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+>>>>>>> master
 
 --
 -- AUTO_INCREMENT for table `reservasi`

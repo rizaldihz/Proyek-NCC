@@ -29,9 +29,7 @@ if(isset($_GET['gagal'])) echo "<script>alert('Username atau password salah');</
 			        <label for="pass" class="font">Password</label>
 			        <input class="font" type="password" placeholder="Enter Password" name="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>" required>
 
-			        <label class="font">
-			          <input type="checkbox" name="remember" <?php if(isset($_COOKIE["username"])) { ?> checked <?php } ?> style="margin-bottom:15px"> Remember me
-			        </label>
+			   
 
 			      <div class="tombol">
 			        <button type="submit" class="butres" name="submit" style="margin-top: 3%"><b>Login</b></button>
@@ -41,6 +39,8 @@ if(isset($_GET['gagal'])) echo "<script>alert('Username atau password salah');</
 							<input type='hidden' name='logout' value='logout'>
 			        <button type="submit" class="butres" name="submit" style="margin-top: 3%"><b>Logout</b></button>
 						</div>
+            <br>
+            <a href="<?php echo $dir?>/monitor">Monitor PC</a>
 <?php endif?>
 			    </div>
 			  </form>
