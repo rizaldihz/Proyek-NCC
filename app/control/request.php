@@ -2,7 +2,14 @@
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $nrp = $_POST['nrp'];
+    $query = "SELECT `NRP`,`Status` from `reservasi` 
+    where `NRP`='$nrp' AND `Status`='Pending'";
+    $hasil = $db->query($query);
     if(!isset($_POST['status'])){
+        if(mysqli_num_rows($hasil)>0){
+            redirect("$dir/reserve?gagal");
+            die();
+        }
         $nama = $_POST['nama'];
         $telepon = $_POST['telepon'];
         $email = $_POST['email'];
@@ -18,7 +25,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         include("$app/view/reserve.php");
         die();
 
-    }else{
+    }else if(isset($_POST['status'])){
+        $query = "SELECT `NRP`,`Status` from `reservasi` 
+        where `NRP`='$nrp' AND `Form` !=''";
+        $cek = $db->query($query);
+        if(mysqli_num_rows($cek)>0){
+            redirect("$dir/upload?gagal");
+            die();
+        }
         $temp = "/temp/"."{$_FILES["form"]["name"]}";
         $spec = $_POST['spec'];
         $detail = $_POST['kebutuhan'];
@@ -27,11 +41,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $upload = move_uploaded_file($_FILES["form"]["tmp_name"], $app.$temp);
         
         $query = "UPDATE `reservasi` SET `Spesifikasi` = '$spec', `Kebutuhan` = '$detail', `Form` = '$temp'
-                    WHERE `NRP` = '$nrp' AND `Status` = '$status'";
-        $db->query($query);
+                    WHERE `NRP` = '$nrp' AND `Status` = 'Pending'";
+        $hasil = $db->query($query);
         $db->close();
         redirect("$dir/upload?sukses");
-
     }
 }else if($_SERVER["REQUEST_METHOD"] == "GET"){
 

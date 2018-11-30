@@ -15,7 +15,9 @@
 			  <form action="<?php echo "$dir" ?>/request" method="POST" class="isi" style="background-color: white; margin-top: 5%;" enctype="multipart/form-data">
 			    <div class="container">
 						<?php if(isset($_GET['sukses'])):?>
-						<p> Upload Sukses </P>
+						<p> Upload Sukses </p>
+            <?php elseif(isset($_GET['gagal'])):?>
+            <p style="font-family: avenir; color: red;">Pemesanan Gagal, Anda telah memesan sebelumnya!</p>
 						<?php endif ?> 
 			      <p style="font-family: avenir; color: black; text-align: left; font-size: 25pt; margin-top: 0%;"><b>Upload Reservation File</b></p>
 			      <p style="font-family: avenir; color: black;">Have you make reservation? Upload the file here.</p>
@@ -32,7 +34,7 @@
 
 			        <label class="rform_font1">Reservation File</label>
 					<div>
-						<input class="btn" type="file" name="form">
+						<input class="btn" type="file" name="form" required>
 					</div>
 						<input type="hidden" name='status' value="Pending">
 
