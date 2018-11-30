@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
+-- Generation Time: Nov 23, 2018 at 10:08 PM
+=======
 -- Generation Time: Nov 24, 2018 at 01:10 AM
+>>>>>>> master
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -44,6 +48,8 @@ INSERT INTO `admin` (`id`, `user`, `pass`) VALUES
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
+=======
 -- Table structure for table `pc`
 --
 
@@ -94,6 +100,7 @@ INSERT INTO `peminjaman` (`id`, `pc`, `nrp`, `awal`, `akhir`) VALUES
 -- --------------------------------------------------------
 
 --
+>>>>>>> master
 -- Table structure for table `reservasi`
 --
 
@@ -132,6 +139,8 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+<<<<<<< HEAD
+=======
 -- Indexes for table `pc`
 --
 ALTER TABLE `pc`
@@ -144,6 +153,7 @@ ALTER TABLE `peminjaman`
   ADD PRIMARY KEY (`id`);
 
 --
+>>>>>>> master
 -- Indexes for table `reservasi`
 --
 ALTER TABLE `reservasi`
@@ -157,6 +167,9 @@ ALTER TABLE `reservasi`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
+<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+=======
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -164,6 +177,7 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `peminjaman`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+>>>>>>> master
 
 --
 -- AUTO_INCREMENT for table `reservasi`

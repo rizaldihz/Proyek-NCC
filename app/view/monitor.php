@@ -1,3 +1,8 @@
+<?php
+if (!$_SESSION['admin']['loggedin']){
+  redirect("$dir/user");
+}
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -18,27 +23,7 @@
       <p>
         <br><h2>PC Reservation List</h2>
   
-  <table class="table">
-    <thead>
-      <tr class="success">
-        <th>Name</th>
-        <th>NRP</th>
-        <th>PC Specification</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Warning</td>
-        <td>Refs</td>
-        <td>bo@example.com</td>
-      </tr>
-      <tr>
-        <td>Active</td>
-        <td>Activeson</td>
-        <td>act@example.com</td>
-      </tr>
-    </tbody>
-  </table>
+      <?php include("$app/view/table.php")?>
 
 
       </p>
@@ -49,62 +34,225 @@
       <br><br>
   <div class="row">
     <div class="col-sm-offset-4 col-sm-1" style="background-color:white;text-align: center; font-size: 10px;"><a href="<?php echo $dir?>/monitor?id=1"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%">
-          <p class='bg-success'>PC-1</p><p class='bg-danger'>PC-1</p>
+          <?php if(cek(1)):?><p class='bg-success'>PC-1</p>
+          <?php else:?>
+          <p class='bg-danger'>PC-1</p>
+          <?php
+          $query = "SELECT `nrp` from `peminjaman` where `pc`=1 ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+          <?php endif?>
         </a></div>
     
     <div class="col-sm-1" style="background-color:white;text-align: center;  font-size: 10px;"><a href="<?php echo $dir?>/monitor?id=2"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%">
-      <p class='bg-success'>PC-2</p><p class='bg-danger'>PC-2</p>
+          <?php if(cek(2)):?><p class='bg-success'>PC-2</p>
+          <?php else:?><p class='bg-danger'>PC-2</p>
+          <?php
+          $query = "SELECT `nrp` from `peminjaman` where `pc`=2 ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+          <?php endif?>
     </a></div>
     <div class="col-sm-1" style="background-color:white; text-align: center;  font-size: 10px;"><a href="<?php echo $dir?>/monitor?id=3"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%">
-      <p class='bg-success'>PC-3</p><p class='bg-danger'>PC-3</p>
+          <?php if(cek(3)):?><p class='bg-success'>PC-3</p>
+          <?php else:?><p class='bg-danger'>PC-3</p>
+          <?php
+          $query = "SELECT `nrp` from `peminjaman` where `pc`=3 ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+          <?php endif?>
     </a></div>
   </div>
 
   <div class="row">
-    <div class="col-sm-offset-7 col-sm-1" style="background-color:white; text-align: center; font-size: 10px; transform: rotate(90deg);"><a href="<?php echo $dir?>/monitor?id=4"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%"><p class='bg-success'>PC-4</p><p class='bg-danger'>PC-4</p></a></div>
+    <div class="col-sm-offset-7 col-sm-1" style="background-color:white; text-align: center; font-size: 10px; transform: rotate(90deg);"><a href="<?php echo $dir?>/monitor?id=4"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%">
+          <?php if(cek(4)):?><p class='bg-success'>PC-4</p>
+          <?php else:?><p class='bg-danger'>PC-4</p>
+          <?php
+          $query = "SELECT `nrp` from `peminjaman` where `pc`=4 ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+          <?php endif?>
+      </a>
+    </div>
 
   </div>
 
   <div class="row">
-    <div class="col-sm-offset-7 col-sm-1" style="background-color:white; text-align: center; font-size: 10px; transform: rotate(90deg);"><a href="<?php echo $dir?>/monitor?id=5"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" style=""><p class='bg-success'>PC-5</p><p class='bg-danger'>PC-5</p></a></a></div>
-    <div class="col-sm-4" style="background-color:lavenderblush;"></div>
+    <div class="col-sm-offset-7 col-sm-1" style="background-color:white; text-align: center; font-size: 10px; transform: rotate(90deg);"><a href="<?php echo $dir?>/monitor?id=5"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" style="">
+          <?php if(cek(5)):?><p class='bg-success'>PC-5</p>
+          <?php else:?><p class='bg-danger'>PC-5</p>
+          <?php
+          $query = "SELECT `nrp` from `peminjaman` where `pc`=5 ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+          <?php endif?>
+    </a></div>
   </div>
   <div class="row">
   
-    <div class="col-sm-offset-7 col-sm-1" style="background-color:white; text-align: center; font-size: 10px; transform: rotate(90deg);"><a href="<?php echo $dir?>/monitor?id=6"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" style=""><p class='bg-success'>PC-6</p><p class='bg-danger'>PC-6</p></a></div>
-    <div class="col-sm-4" style="background-color:lavenderblush;"></div>
+    <div class="col-sm-offset-7 col-sm-1" style="background-color:white; text-align: center; font-size: 10px; transform: rotate(90deg);"><a href="<?php echo $dir?>/monitor?id=6"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" style="">
+          <?php if(cek(6)):?><p class='bg-success'>PC-6</p>
+          <?php else:?><p class='bg-danger'>PC-6</p>
+          <?php
+          $query = "SELECT `nrp` from `peminjaman` where `pc`=6 ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+          <?php endif?>
+    </a></div>
+
   </div>
   <div class="row">
     <!-- <div class="col-sm-4" style="background-color:lavender;"></div>
     <div class="col-sm-3" style="background-color:lavenderblush;"></div> -->
-    <div class="col-sm-offset-7 col-sm-1" style="background-color:white; text-align: center; font-size: 10px; transform: rotate(90deg);"><a href="<?php echo $dir?>/monitor?id=7"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" ><p class='bg-success'>PC-7</p><p class='bg-danger'>PC-7</p></a></div>
-    <div class="col-sm-4" style="background-color:lavenderblush;"></div>
+    <div class="col-sm-offset-7 col-sm-1" style="background-color:white; text-align: center; font-size: 10px; transform: rotate(90deg);"><a href="<?php echo $dir?>/monitor?id=7"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" >
+          <?php if(cek(7)):?><p class='bg-success'>PC-7</p>
+          <?php else:?><p class='bg-danger'>PC-7</p>
+          <?php
+          $query = "SELECT `nrp` from `peminjaman` where `pc`=7 ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+          <?php endif?>
+    </a></div>
+
   </div>
   <div class="row">
     <!-- <div class="col-sm-4" style="background-color:lavender;"></div>
     <div class="col-sm-1" style="background-color:lavenderblush;"></div>
     <div class="col-sm-1" style="background-color:lavender;"></div>
     <div class="col-sm-1" style="background-color:lavender;"></div> -->
-    <div class="col-sm-offset-7 col-sm-1" style="background-color:white; text-align: center; font-size: 10px; transform: rotate(90deg);"><a href="<?php echo $dir?>/monitor?id=8"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" ><p class='bg-success'>PC-8</p><p class='bg-danger'>PC-8</p></a></div>
-    <div class="col-sm-4" style="background-color:lavenderblush;"></div>
+    <div class="col-sm-offset-7 col-sm-1" style="background-color:white; text-align: center; font-size: 10px; transform: rotate(90deg);"><a href="<?php echo $dir?>/monitor?id=8"><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" >
+          <?php if(cek(8)):?><p class='bg-success'>PC-8</p>
+          <?php else:?><p class='bg-danger'>PC-8</p>
+          <?php
+          $query = "SELECT `nrp` from `peminjaman` where `pc`=8 ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+          <?php endif?>
+    </a></div>
   </div>
   <div class="row">
     <!-- <div class="col-sm-4" style="background-color:white;"></div> -->
-    <div class="col-sm-offset-4 col-sm-1" style="background-color:white; text-align: center; font-size: 10px;"><a href="<?php echo $dir?>/monitor?id=9"><p class='bg-success'>PC-9</p><p class='bg-danger'>PC-9</p><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" style="transform: rotate(180deg);"></a></div>
-    <div class="col-sm-1" style="background-color:white; text-align: center; font-size: 10px;"><a href="<?php echo $dir?>/monitor?id=10"><p class='bg-success'>PC-10</p><p class='bg-danger'>PC-10</p><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" style="transform: rotate(180deg);"></a></div>
-    <div class="col-sm-1" style="background-color:white; text-align: center; font-size: 10px;"><a href="<?php echo $dir?>/monitor?id=11"><p class='bg-success'>PC-11</p><p class='bg-danger'>PC-11</p><img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" style="transform: rotate(180deg);"></a></div>
+    <div class="col-sm-offset-4 col-sm-1" style="background-color:white; text-align: center; font-size: 10px;"><a href="<?php echo $dir?>/monitor?id=9">
+          <?php if(cek(9)):?><p class='bg-success'>PC-9</p>
+          <?php else:?><p class='bg-danger'>PC-9</p>
+          <?php
+          $query = "SELECT `nrp` from `peminjaman` where `pc`=9 ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+          <?php endif?>
+          <img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" style="transform: rotate(180deg);">
+        </a>
+    </div>
+    <div class="col-sm-1" style="background-color:white; text-align: center; font-size: 10px;"><a href="<?php echo $dir?>/monitor?id=10">
+          <?php if(cek(10)):?><p class='bg-success'>PC-10</p>
+          <?php else:?><p class='bg-danger'>PC-10</p>
+          <?php
+          $query = "SELECT `nrp` from `peminjaman` where `pc`=10 ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+          <?php endif?>
+          <img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" style="transform: rotate(180deg);">
+        </a>
+    </div>
+    <div class="col-sm-1" style="background-color:white; text-align: center; font-size: 10px;"><a href="<?php echo $dir?>/monitor?id=11">
+          <?php if(cek(11)):?><p class='bg-success'>PC-11</p>
+          <?php else:?><p class='bg-danger'>PC-11</p>
+          <?php
+          $query = "SELECT `nrp` from `peminjaman` where `pc`=11 ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+          <?php endif?>
+          <img src="<?php echo $dir?>/public/img/pc.jpg" alt="5Terre" width="100%" style="transform: rotate(180deg);">
+        </a>
+    </div>
     <div class="col-sm-1" style="background-color:white;"></div>
     <div class="col-sm-4" style="background-color:white;"></div>
+    
   </div>
-      
+  <a href="<?php echo $dir?>/"><button class="btn btn-primary">Home <span class="glyphicon glyphicon-home"></span></button></a>
     </div>
-
-
+    
   </div>
 
   
-
-  <a href="<?php echo $dir?>/">Home</a>
 </div>
 <?php if(isset($_GET['id'])):?>
 <div id="komputer" class="modal fade" role="dialog">
@@ -123,9 +271,15 @@
           <br>
           <div id="book" class="collapse">
             <form action="<?php echo $dir?>/monitor" method="GET">
-              <input class="form-control" type="text" name="nrp" placeholder="Masukkan NRP disini"><br>
-              <input class="form-control" type="date" name="awal" placeholder="Awal"><br>
-              <input class="form-control" type="date" name="akhir" placeholder="Awal"><br>
+            <br>
+            <label for="nrp">NRP</label>
+            <select class="form-control" name="nrp">
+              <?php while($daftar=$pending->fetch_assoc()):?>
+                  <?php if($daftar['Status']=='Pending'):?>
+                    <option value="<?php echo $daftar['NRP']?>"><?php echo $daftar['NRP']?></option>
+                  <?php endif ?>
+              <?php endwhile ?>
+            </select><br>
               <input type="hidden" name="pc" value="<?php echo $_GET['id']?>">
               <input class="btn btn-success" type="submit" value="Book">
             </form>
@@ -133,9 +287,22 @@
 
         <?php else: ?>
         <p class='bg-danger'>Not Available</p>
+        <?php 
+        $query = "SELECT `nrp` from `peminjaman` where `pc`=".$_GET['id']." ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['nrp'];
+        $query = "SELECT `Nama` from `reservasi` where `NRP`=$hasil AND `Status`='Terima' ORDER BY `id` DESC LIMIT 1";
+        $hasil = $db->query($query);
+        $hasil = mysqli_fetch_assoc($hasil);
+        $hasil = $hasil['Nama'];
+        ?>
+        <br>
+        <p>Dipinjam oleh <?php echo $hasil?></p>
+        <br>
         <a href="<?php echo $dir?>/monitor?hapus&pc=<?php echo $_GET['id']?>"><button class='btn btn-danger'>Hapus Peminjaman</button></a>
         <?php endif?>
-
+        <br>
         <button class='btn btn-warning' data-toggle="modal" data-target="#myModal">Riwayat</button>
 
 <!-- Modal -->

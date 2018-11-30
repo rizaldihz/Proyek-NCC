@@ -15,6 +15,9 @@
 			<?php if (!isset($_POST['nama'])):?>
 			  <form action="<?php echo $dir ?>/request" method="POST" class="isi" style="background-color: white; margin-top: 5%;">
 			    <div class="container">
+						<?php if(isset($_GET['gagal'])):?>
+						<p style="font-family: avenir; color: red;">Pemesanan Gagal, Anda telah memesan sebelumnya!</p>
+						<?php endif ?>
 			      <p style="font-family: avenir; color: black; text-align: left; font-size: 25pt; margin-top: 0%;"><b>Reservation Form</b></p>
 			      <p style="font-family: avenir; color: black;">Hey, feel free to fill this form!</p>
 			      <br>
